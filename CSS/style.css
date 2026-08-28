@@ -18,6 +18,11 @@
     font-family: 'Inter', system-ui, sans-serif;
   }
 
+  a {
+    color: "white";
+    text-decoration: underline;
+  }
+
   .app {
     display: flex;
     min-height: 100vh;
