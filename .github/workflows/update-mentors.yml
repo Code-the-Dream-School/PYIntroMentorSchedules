@@ -6,7 +6,7 @@ on:
     # UTC — there is no timezone field — so if you want this to line up
     # with a specific local hour, convert first (e.g. 9am US/Eastern is
     # 13:00 or 14:00 UTC depending on daylight saving).
-    - cron: '0 * * * *'
+    - cron: '30 * * * *'
   workflow_dispatch: {}   # lets you trigger a refresh manually from the Actions tab
 
 permissions:
