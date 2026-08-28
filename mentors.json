@@ -1,4 +1,35 @@
 {
-  "mentors": [],
-  "generatedAt": "2026-08-28T23:02:51.869Z"
+  "mentors": [
+    {
+      "name": "Glengle Pham",
+      "role": "",
+      "slug": "glengle-ctd"
+    },
+    {
+      "name": "Lilly",
+      "role": "",
+      "slug": "perezlilly73"
+    },
+    {
+      "name": "Michael O'Leary",
+      "role": "",
+      "slug": "m_oleary"
+    },
+    {
+      "name": "Shinora Khan",
+      "role": "",
+      "slug": "shinorakhan247"
+    },
+    {
+      "name": "Vera Fesianava",
+      "role": "",
+      "slug": "verafes"
+    },
+    {
+      "name": "Vijay Atla",
+      "role": "",
+      "slug": "atla231991"
+    }
+  ],
+  "generatedAt": "2026-08-28T23:20:35.713Z"
 }
