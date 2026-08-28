@@ -44,6 +44,17 @@ async function main() {
 
   const data = await resp.json();
 
+  // --- TEMPORARY DEBUG LOGGING ---
+  // Remove this block once records are coming through correctly.
+  // It prints how many raw records Airtable returned, and the raw
+  // field data for the first couple, so we can see actual field
+  // names/values without exposing everything in a public log.
+  console.log(`Raw records returned by Airtable: ${(data.records || []).length}`);
+  (data.records || []).slice(0, 3).forEach((r, i) => {
+    console.log(`Record ${i} fields:`, JSON.stringify(r.fields));
+  });
+  // --- END DEBUG LOGGING ---
+
   const mentors = (data.records || [])
     .map((r) => ({
       name: r.fields.Name || "",
