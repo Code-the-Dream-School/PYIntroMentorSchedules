@@ -12,7 +12,7 @@
   // Fallback list used only if mentors.json is missing or empty, so the
   // page never shows completely blank. Edit or clear this as you like.
   const FALLBACK_MENTORS = [
-    { name: "Glengle P", slug: "glengle-ctd" },
+    { name: "Mentor Names Coming Soon", slug: "mentor-ctd" },
   ];
  
   const mentorListEl = document.getElementById('mentorList');
