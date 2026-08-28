@@ -18,13 +18,12 @@ if (!AIRTABLE_TOKEN || !AIRTABLE_BASE_ID) {
 // If a view is set, that view's own sort order (configured in Airtable's
 // UI) is used, so no sort param is sent here at all — the view is the
 // single source of truth for ordering. If no view is set, fall back to
-// sorting by Name, since that's guaranteed to exist (Name is required
-// for a mentor to appear at all — see the filter below).
+// sorting by Display Name.
 const params = new URLSearchParams({ pageSize: "100" });
 if (AIRTABLE_VIEW_NAME) {
   params.set("view", AIRTABLE_VIEW_NAME);
 } else {
-  params.set("sort[0][field]", "Name");
+  params.set("sort[0][field]", "Display Name");
   params.set("sort[0][direction]", "asc");
 }
 
@@ -44,26 +43,16 @@ async function main() {
 
   const data = await resp.json();
 
-  // --- TEMPORARY DEBUG LOGGING ---
-  // Remove this block once records are coming through correctly.
-  // It prints how many raw records Airtable returned, and the raw
-  // field data for the first couple, so we can see actual field
-  // names/values without exposing everything in a public log.
-  console.log(`Raw records returned by Airtable: ${(data.records || []).length}`);
-  (data.records || []).slice(0, 3).forEach((r, i) => {
-    console.log(`Record ${i} fields:`, JSON.stringify(r.fields));
-  });
-  // --- END DEBUG LOGGING ---
-
+  // The AIRTABLE_VIEW_NAME view already filters to mentors who are
+  // active and have a Calendly link on file, so every record returned
+  // here is treated as usable — no separate "Active" field needed.
   const mentors = (data.records || [])
     .map((r) => ({
-      name: r.fields.Name || "",
+      name: r.fields["Display Name"] || "",
       role: r.fields.Role || "",
-      slug: r.fields.Slug || "",
-      active: r.fields.Active !== false, // treat missing checkbox as active
+      slug: r.fields["calendly slug"] || "",
     }))
-    .filter((m) => m.name && m.slug && m.active)
-    .map(({ name, role, slug }) => ({ name, role, slug }));
+    .filter((m) => m.name && m.slug);
 
   const output = {
     mentors,
