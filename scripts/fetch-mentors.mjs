@@ -15,16 +15,17 @@ if (!AIRTABLE_TOKEN || !AIRTABLE_BASE_ID) {
   process.exit(1);
 }
 
-// Sorting is only applied here as a fallback for when no view is set —
-// once AIRTABLE_VIEW_NAME is provided, Airtable returns records in that
-// view's own sort/filter order, and these sort params are ignored.
-const params = new URLSearchParams({
-  "sort[0][field]": "Order",
-  "sort[0][direction]": "asc",
-  pageSize: "100",
-});
+// If a view is set, that view's own sort order (configured in Airtable's
+// UI) is used, so no sort param is sent here at all — the view is the
+// single source of truth for ordering. If no view is set, fall back to
+// sorting by Name, since that's guaranteed to exist (Name is required
+// for a mentor to appear at all — see the filter below).
+const params = new URLSearchParams({ pageSize: "100" });
 if (AIRTABLE_VIEW_NAME) {
   params.set("view", AIRTABLE_VIEW_NAME);
+} else {
+  params.set("sort[0][field]", "Name");
+  params.set("sort[0][direction]", "asc");
 }
 
 const url =
