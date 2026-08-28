@@ -5,12 +5,12 @@
   //   e.g. for https://calendly.com/ashley-ctd/30min  -> "ashley-ctd/30min"
   // ---------------------------------------------------------------
   const MENTORS = [
-    // { name: "Anuja B", slug: "anuja-bujurge" },
-    // { name: "Dylan F", slug: "dylan-ctd" },
-    // { name: "Eduardo V", slug: "eduardo-ctd" },
-    // { name: "Kira M", slug: "kiramiller425" },
-    // { name: "Leam H", slug: "lema-hellali" },
-    // { name: "Mario M", slug: "martinezest02" },
+    { name: "Glengle P", slug: "glengle-ctd" },
+    { name: "Lilly P", slug: "perezlilly73" },
+    { name: "Michael O", slug: "m_oleary" },
+    { name: "Shinora K", slug: "shinorakhan247" },
+    { name: "Vera F", slug: "verafes" },
+    { name: "Vijay A", slug: "atla231991" },
   ];
 
   const mentorListEl = document.getElementById('mentorList');
