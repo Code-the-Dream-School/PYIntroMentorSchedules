@@ -18,17 +18,10 @@
   const mentorListEl = document.getElementById('mentorList');
   const mentorNameEl = document.getElementById('mentorName');
   const embedWrap = document.getElementById('embedWrap');
+  const groupSessionLinkEl = document.getElementById('groupSessionLink'); // optional — safe if missing
  
   function initials(name) {
     return name.trim().split(/\s+/).map(w => w[0]).join('').slice(0, 2).toUpperCase();
-  }
- 
-  // Always points at the current month, so the site never goes stale.
-  function currentMonthParam() {
-    const d = new Date();
-    const yyyy = d.getFullYear();
-    const mm = String(d.getMonth() + 1).padStart(2, '0');
-    return `${yyyy}-${mm}`;
   }
  
   function renderList() {
@@ -64,13 +57,14 @@
     // update header text
     mentorNameEl.textContent = mentor.name;
  
-    // build the Calendly URL with the current month baked in
-    const url = `https://calendly.com/${mentor.slug}?month=${currentMonthParam()}&hide_gdpr_banner=1`;
- 
+    // build the Calendly profile URL (no event type specified, so it
+    // shows whatever session types this mentor has set up)
+    const url = `https://calendly.com/${mentor.slug}?hide_gdpr_banner=1`;
+  
     // rebuild the embed container fresh each time (Calendly's widget.js
     // scans the DOM for elements with this class on load)
     embedWrap.innerHTML = `<div class="calendly-inline-widget" data-url="${url}"></div>`;
- 
+  
     // Calendly's widget.js exposes a global helper to (re)initialize
     // an inline widget without a full page reload.
     if (window.Calendly && window.Calendly.initInlineWidget) {
@@ -91,6 +85,14 @@
       const data = await resp.json();
       if (!data.mentors || !data.mentors.length) throw new Error('No mentors in mentors.json');
       MENTORS = data.mentors;
+ 
+      // Update the group session calendar link if present. This only
+      // touches href, so if it's missing from mentors.json (e.g. no row
+      // in Airtable has it set yet) the link just keeps whatever was
+      // already in the HTML rather than breaking.
+      if (groupSessionLinkEl && data.groupSessionLink) {
+        groupSessionLinkEl.href = data.groupSessionLink;
+      }
     } catch (err) {
       console.error('Failed to load mentors.json:', err);
       MENTORS = FALLBACK_MENTORS;

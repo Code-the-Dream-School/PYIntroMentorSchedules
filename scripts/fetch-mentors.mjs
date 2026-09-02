@@ -43,26 +43,35 @@ async function main() {
 
   const data = await resp.json();
 
-  // The AIRTABLE_VIEW_NAME view already filters to mentors who are
-  // active and have a Calendly link on file, so every record returned
-  // here is treated as usable — no separate "Active" field needed.
+  // The AIRTABLE_VIEW_NAME view already filters to mentors who should
+  // be shown (have a Calendly link on file, not onboarding/departed), 
+  // so every record returned here is treated as usable.
   const mentors = (data.records || [])
     .map((r) => ({
       name: r.fields["Display Name"] || "",
-      role: r.fields.Role || "",
       slug: r.fields["calendly slug"] || "",
     }))
     .filter((m) => m.name && m.slug);
 
+  // Group Session Calendar Link is the same value repeated on every
+  // row, so just take it from the first record that has it set.
+  const groupSessionLink =
+    (data.records || []).find((r) => r.fields["Group Session Calendar Link"])
+      ?.fields["Group Session Calendar Link"] || "";
+
   const output = {
     mentors,
+    groupSessionLink,
     generatedAt: new Date().toISOString(),
   };
 
   const fs = await import("node:fs/promises");
   await fs.writeFile("mentors.json", JSON.stringify(output, null, 2) + "\n");
 
-  console.log(`Wrote mentors.json with ${mentors.length} active mentor(s).`);
+  console.log(
+    `Wrote mentors.json with ${mentors.length} mentor(s)` +
+    `${groupSessionLink ? " and a group session link" : " (no group session link found)"}.`
+  );
 }
 
 main().catch((err) => {
