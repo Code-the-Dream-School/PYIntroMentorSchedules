@@ -33,10 +33,7 @@
       li.innerHTML = `
         <button type="button" aria-pressed="false">
           <span class="avatar">${initials(mentor.name)}</span>
-          <span>
             <span class="mentor-name">${mentor.name}</span>
-            ${mentor.role ? `<span class="mentor-role">${mentor.role}</span>` : ''}
-          </span>
         </button>
       `;
       li.querySelector('button').addEventListener('click', () => selectMentor(i));
