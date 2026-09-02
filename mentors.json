@@ -2,34 +2,31 @@
   "mentors": [
     {
       "name": "Glengle P",
-      "role": "",
       "slug": "glengle-ctd"
     },
     {
-      "name": "Lilly P",
-      "role": "",
+      "name": "Odaliss P",
       "slug": "perezlilly73"
     },
     {
-      "name": "Michael O",
-      "role": "",
+      "name": "Mike O",
       "slug": "m_oleary"
     },
     {
       "name": "Shinora K",
-      "role": "",
       "slug": "shinorakhan247"
     },
     {
       "name": "Vera F",
-      "role": "",
       "slug": "verafes"
     },
     {
       "name": "Vijay A",
-      "role": "",
       "slug": "atla231991"
     }
   ],
-  "generatedAt": "2026-09-02T15:21:33.522Z"
+  "groupSessionLink": [
+    "https://codethedream.slack.com/docs/T07EHJ738/F0BBWBR899D?focus_section_id=temp:C:cRKa504dc44c0f24d7fab5de2edc"
+  ],
+  "generatedAt": "2026-09-02T16:18:29.713Z"
 }
