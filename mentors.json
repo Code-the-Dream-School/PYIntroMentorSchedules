@@ -2,34 +2,31 @@
   "mentors": [
     {
       "name": "Glengle P",
-      "role": "",
       "slug": "glengle-ctd"
     },
     {
-      "name": "Lilly P",
-      "role": "",
+      "name": "Odaliss P",
       "slug": "perezlilly73"
     },
     {
-      "name": "Michael O",
-      "role": "",
+      "name": "Mike O",
       "slug": "m_oleary"
     },
     {
       "name": "Shinora K",
-      "role": "",
       "slug": "shinorakhan247"
     },
     {
       "name": "Vera F",
-      "role": "",
       "slug": "verafes"
     },
     {
       "name": "Vijay A",
-      "role": "",
       "slug": "atla231991"
     }
   ],
-  "generatedAt": "2026-09-02T15:21:33.522Z"
+  "groupSessionLink": [
+    "https://code-the-dream-school.github.io/PYIntroMentorSchedules/"
+  ],
+  "generatedAt": "2026-09-02T16:12:27.738Z"
 }
