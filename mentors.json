@@ -1,6 +1,10 @@
 {
   "mentors": [
     {
+      "name": "Eduardo V",
+      "slug": "eduardo-ctd"
+    },
+    {
       "name": "Glengle P",
       "slug": "glengle-ctd"
     },
@@ -28,5 +32,5 @@
   "groupSessionLink": [
     "https://codethedream.slack.com/docs/T07EHJ738/F0BBWBR899D?focus_section_id=temp:C:cRKa504dc44c0f24d7fab5de2edc"
   ],
-  "generatedAt": "2026-09-16T12:46:07.506Z"
+  "generatedAt": "2026-09-16T17:42:04.801Z"
 }
