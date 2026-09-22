@@ -56,7 +56,7 @@ async function main() {
   // so every record returned here is treated as usable.
   const mentors = (data.records || [])
     .map((r) => ({
-      name: r.fields["Display Name"] || "",
+      name: r.fields["Formatted Name"] || "",
       slug: r.fields["calendly slug"] || "",
     }))
     .filter((m) => m.name && m.slug);
