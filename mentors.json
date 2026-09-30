@@ -1,7 +1,24 @@
 {
-  "mentors": [],
+  "mentors": [
+    {
+      "name": "Eduardo V",
+      "slug": "eduardo-ctd"
+    },
+    {
+      "name": "Marina N",
+      "slug": "marin-nosova"
+    },
+    {
+      "name": "Matthew D",
+      "slug": "matthew-ctd"
+    },
+    {
+      "name": "Saverio N",
+      "slug": "saverio-ctd"
+    }
+  ],
   "groupSessionLink": [
     "https://codethedream.slack.com/docs/T07EHJ738/F0C2RBJ48CR?focus_section_id=temp:C:eMA95da58a2a6d84a69af7acd36e"
   ],
-  "generatedAt": "2026-09-30T13:38:36.416Z"
+  "generatedAt": "2026-09-30T13:48:15.224Z"
 }
