@@ -31,7 +31,7 @@ if (AIRTABLE_VIEW_NAME) {
 // pulling every column on every record. Airtable requires each one
 // added as a separate fields[] entry (not a single comma-separated
 // value), hence the loop.
-["Formaatted Name", "calendly slug", "Group Session Calendar Link"].forEach((f) =>
+["Formatted Name", "calendly slug", "Group Session Calendar Link"].forEach((f) =>
   params.append("fields[]", f)
 );
 
