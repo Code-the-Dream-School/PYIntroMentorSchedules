@@ -2,23 +2,23 @@
   "mentors": [
     {
       "name": "Eduardo V",
-      "slug": "eduardo-ctd"
+      "schedulingUrl": "https://calendly.com/eduardo-ctd/coffee-chat"
     },
     {
       "name": "Marina N",
-      "slug": "marin-nosova"
+      "schedulingUrl": "https://calendly.com/marin-nosova/30min"
     },
     {
       "name": "Matthew D",
-      "slug": "matthew-ctd"
+      "schedulingUrl": "https://calendly.com/matthew-ctd/1-1-mentor-session"
     },
     {
       "name": "Saverio N",
-      "slug": "saverio-ctd"
+      "schedulingUrl": "https://calendly.com/saverio-ctd/1-1-mentor-session"
     }
   ],
   "groupSessionLink": [
     "https://codethedream.slack.com/docs/T07EHJ738/F0C2RBJ48CR?focus_section_id=temp:C:eMA95da58a2a6d84a69af7acd36e"
   ],
-  "generatedAt": "2026-10-01T13:46:37.167Z"
+  "generatedAt": "2026-10-01T16:20:11.482Z"
 }
